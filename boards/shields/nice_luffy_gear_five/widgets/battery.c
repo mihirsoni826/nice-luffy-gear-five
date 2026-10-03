@@ -31,7 +31,7 @@ static void draw_charging_level(lv_obj_t *canvas, const struct status_state *sta
     lv_canvas_draw_text(canvas, 0, 1, 35, &label_right_dsc, text);
 
     // Charging bolt on top row as well
-    lv_canvas_draw_img(canvas, 36, 3, &bolt, &img_dsc);
+    lv_canvas_draw_img(canvas, 38, 3, &bolt, &img_dsc);
 }
 
 void draw_battery_status(lv_obj_t *canvas, const struct status_state *state) {
