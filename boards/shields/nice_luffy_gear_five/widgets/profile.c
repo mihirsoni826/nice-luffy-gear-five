@@ -7,8 +7,7 @@ static void draw_inactive_profiles(lv_obj_t *canvas, const struct status_state *
     lv_draw_img_dsc_t img_dsc;
     lv_draw_img_dsc_init(&img_dsc);
 
-    // Move the whole profile strip way up and right
-    lv_canvas_draw_img(canvas, 35, 95 + BUFFER_OFFSET_BOTTOM, &profiles, &img_dsc);
+    lv_canvas_draw_img(canvas, 18, 145 + BUFFER_OFFSET_BOTTOM, &profiles, &img_dsc);
 }
 
 static void draw_active_profile(lv_obj_t *canvas, const struct status_state *state) {
@@ -17,15 +16,7 @@ static void draw_active_profile(lv_obj_t *canvas, const struct status_state *sta
 
     int offset = state->active_profile_index * 7;
 
-    // Make the active profile indicator huge and very obvious
-    lv_canvas_draw_rect(
-        canvas,
-        35 + offset,
-        95 + BUFFER_OFFSET_BOTTOM,
-        8,
-        8,
-        &rect_white_dsc
-    );
+    lv_canvas_draw_rect(canvas, 18 + offset, 145 + BUFFER_OFFSET_BOTTOM, 3, 3, &rect_white_dsc);
 }
 
 void draw_profile_status(lv_obj_t *canvas, const struct status_state *state) {
