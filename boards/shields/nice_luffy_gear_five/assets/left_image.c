@@ -1,17 +1,4 @@
-#ifdef __has_include
-    #if __has_include("lvgl.h")
-        #ifndef LV_LVGL_H_INCLUDE_SIMPLE
-            #define LV_LVGL_H_INCLUDE_SIMPLE
-        #endif
-    #endif
-#endif
-
-#if defined(LV_LVGL_H_INCLUDE_SIMPLE)
-    #include "lvgl.h"
-#else
-    #include "lvgl/lvgl.h"
-#endif
-
+#include "lvgl.h"
 
 #ifndef LV_ATTRIBUTE_MEM_ALIGN
 #define LV_ATTRIBUTE_MEM_ALIGN
@@ -22,8 +9,13 @@
 #endif
 
 const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_LEFT_IMAGE uint8_t left_image_map[] = {
-  0xbc, 0xbc, 0xbc, 0xff, 	/*Color of index 0*/
-  0x42, 0x42, 0x42, 0xff, 	/*Color of index 1*/
+  #if CONFIG_NICE_VIEW_WIDGET_INVERTED
+          0xff, 0xff, 0xff, 0xff, /* index 0 */
+          0x00, 0x00, 0x00, 0xff, /* index 1 */
+  #else
+          0x00, 0x00, 0x00, 0xff, /* index 0 */
+          0xff, 0xff, 0xff, 0xff, /* index 1 */
+  #endif
 
   0xff, 0xff, 0xf8, 0xef, 0xfe, 0xaf, 0xfa, 0x8c, 0x00, 0x54, 
   0xff, 0xff, 0xfd, 0x7b, 0xfe, 0xfd, 0xd5, 0x00, 0x00, 0x00, 
